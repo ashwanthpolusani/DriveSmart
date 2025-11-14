@@ -1,86 +1,197 @@
-# ROAD-ACCIDENTS-PREDICTION-AND-CLASSIFICATION
-Final Year Project on Road Accident Prediction using user's Location,weather conditions by applying machine Learning concepts.
+# DriveSmart: Road Accident Prediction & Classification
 
-# DataSet
-https://github.com/abdulwahed786/final-yr-projectqA
+A full-stack web application that predicts road accident severity using machine learning, geolocation, and real-time weather data.
 
-# To Run 
-` python main.py `
+## 📋 Project Overview
 
-# ML algorithms 
-<p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/29819481/67921930-4c64fe80-fbcf-11e9-9b87-c3225daad396.png">
-</p>
+**DriveSmart** combines a React frontend with a Flask backend to provide:
+- **Accident Severity Prediction** — Classifies accidents as Fatal, Severe, or Slight
+- **Interactive Heatmap** — Visualizes accident hotspots across the UK
+- **Real-time Data Collection** — Captures user location, weather, vehicle info, and driver details
+- **ML Model** — Random Forest classifier (86.86% accuracy)
 
-# VM 
-<p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/29819481/67922038-8a622280-fbcf-11e9-828a-22fb0abd35b1.png">
-</p>
+## 🏗️ Architecture
 
-Fig 4.6 Azure VM page
+```
+frontend/           ← React + Vite (user interface)
+backend/            ← Flask API (predictions & data serving)
+  ├── data/
+  │   ├── mapdata.json        (heatmap locations & Google API key)
+  │   └── litemodel.sav       (trained Random Forest model)
+  ├── main.py                 (Flask app with /api/predict & /api/mapdata)
+  └── requirements.txt
+unwanted/           ← Archived files (old notebooks, venv, etc.)
+scripts/            ← Utility scripts for data/file management
+```
 
-Virtual Machine deployed on Azure.
+## 🚀 Quick Start
 
-We have chosen Random Forest as our model as it has the highest accuracy (86.86%).
+### Backend Setup
+```bash
+# Install dependencies
+pip install -r backend/requirements.txt
 
-Input taken from user is sent to the backend flask server which feeds the parameters to the ML model and returns the result. It also sends a message to the police to take preventive measures.
+# Run the Flask server (port 4000)
+python backend/main.py
+```
 
-**RESULTS AND DISCUSSIONS**
+### Frontend Setup
+```bash
+# Install dependencies
+cd frontend
+npm install
 
+# Run Vite dev server (port 5173)
+npm run dev
+```
 
-**Figure 4.1** User page
+Open `http://localhost:5173` in your browser.
 
-<p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/29819481/67922275-56d3c800-fbd0-11e9-969c-ce6452b6d6a6.png">
-</p>
+## 📡 API Endpoints
 
-The above figure 4.1 shows the home page of the web app. The web domain is secured with HTTPS wich has been obtained from the certificate authority for secure data transfer and to be able to use the Geolocation API. Displays the data owner login web page, which allows data owner to login and also to register, if the user does not have existing account.
+### `/api/predict` (POST)
+Predicts accident severity from user input.
 
+**Request:**
+```json
+{
+  "age_of_driver": 35,
+  "age_of_vehicle": 5,
+  "vehicle": "car",
+  "engine_cc": 1500,
+  "speedl": 60,
+  "Did_Police_Officer_Attend": 1,
+  "gender": 1,
+  "day": 3,
+  "weather": "rain",
+  "roadsc": 1,
+  "light": 1
+}
+```
 
-**Figure 4.2** User Location by GPS
+**Response:**
+```json
+{
+  "prediction": "2",
+  "confidence": 87.5
+}
+```
 
-<p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/29819481/67922304-681cd480-fbd0-11e9-8eb5-d8649e4d995c.png">
-</p>
+### `/api/mapdata` (GET)
+Returns Google Maps API key and heatmap locations.
 
-shows that when user clicks on update coordinates button, the web page requests the browser to take user coordinates. In the backend flask module, GeoLocation API is used to get location of the user. Ajax is used to update the latitude and longitude of the user in the web page.
+**Response:**
+```json
+{
+  "api_key": "AIzaSyD3t4mfJNy9NxxVKT4J_T47soKBgCRUTO4",
+  "locations": [
+    {"lat": 51.5155, "lng": -0.0806},
+    ...
+  ]
+}
+```
 
-The coordinates are sent to the OpenWeatherMap Api in the backend for the weather details. From the response we extract the details we require such as weather , road and light conditions.
+## 🎯 Features
 
-Day of the week is updated with the getDate function of javascript.
+- ✅ **Severity Prediction** — Uses ML to classify accident risk
+- ✅ **Interactive Map** — Google Maps heatmap showing accident hotspots
+- ✅ **Form Validation** — Client-side and server-side input validation
+- ✅ **CORS Enabled** — Frontend and backend run on different ports
+- ✅ **Clean Architecture** — Separated frontend/backend with clear data flow
 
-**Figure 4.9** User input for other parameters
+## 📊 Model Details
 
-<p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/29819481/67922808-e3cb5100-fbd1-11e9-9497-850fcf4061e0.png">
-</p>
+- **Algorithm:** Random Forest Classifier
+- **Accuracy:** 86.86%
+- **Input Features:** Driver age, vehicle info, speed, weather, road conditions, light conditions
+- **Output Classes:** 1 (Fatal), 2 (Severe), 3 (Slight)
 
-Figure 4.9shows the input for parameters taken from users. These include the vehicle type, age gender and speed limit.
+## 🛠️ Technologies
 
-**Figure 4.10** Output Predicted
+**Frontend:**
+- React 18 + Vite
+- Google Maps JavaScript API (gmaps library)
+- Heatmap visualization
 
-<p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/29819481/67922809-e463e780-fbd1-11e9-8eba-062a6662970c.png">
-</p>
+**Backend:**
+- Python 3.12
+- Flask + Flask-CORS
+- Joblib (model loading)
+- NumPy (numerical operations)
 
-Figure 4.10shows all the data of the user. When the user clicks on Predict, that data is sent to the backend from where it is feeded into our chosen machine learning algorithm which is Random Forest. The output predicted is on the following basis of severity as 1- Fatal, 2- Severe, 3-Slight.
+## 📝 Project Structure
 
-**Figure 4.11** Click on sms button
+```
+project/
+├── frontend/
+│   ├── src/
+│   │   ├── DriveSmart.jsx      (prediction form & UI)
+│   │   ├── MapComponent.jsx    (heatmap visualization)
+│   │   ├── main.jsx
+│   │   └── styles.css
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+├── backend/
+│   ├── data/
+│   │   ├── mapdata.json
+│   │   └── litemodel.sav
+│   ├── main.py
+│   ├── requirements.txt
+│   └── README-DRIVESMART-INTEGRATION.md
+├── scripts/                    (utility scripts)
+├── unwanted/                   (archived files)
+├── .gitignore
+└── README.md
+```
 
-<p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/29819481/67922806-e3cb5100-fbd1-11e9-884e-a89ef1bd4931.png">
-</p>
+## 🔧 Configuration
 
-In this Figure 4.11 an sms is sent to the police with location details and severity.  The TextLocal Api gives us 10 free messages to be sent every day.
+### Environment Variables
+Create a `.env` file in the backend (optional):
+```
+FLASK_ENV=development
+FLASK_DEBUG=1
+```
 
-**Figure 4.12** Map
+### Model Path
+The model (`litemodel.sav`) is loaded from `backend/data/litemodel.sav` at startup.
 
-<p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/29819481/67922828-ecbc2280-fbd1-11e9-995b-1a9be5e3095c.png">
-</p>
+## 📚 Data Files
 
-In the Figure 4.12 This web page displays an interactive heat map for users. Darker points mean greater severity. The gmaps api is used to plot on google maps.
+- **mapdata.json** — Extracted widget state from Jupyter widget export (API key + heatmap locations)
+- **litemodel.sav** — Pre-trained Random Forest model serialized with Joblib
 
-<p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/29819481/67922828-ecbc2280-fbd1-11e9-995b-1a9be5e3095c.png">
-</p>
+## ⚠️ Notes
+
+- The Google Maps API key in `mapdata.json` must have the **Heatmap Layer library** enabled.
+- Ensure the key is not restricted to a specific domain (or allow `localhost:5173`).
+- The backend runs on port 4000; the frontend on port 5173.
+
+## 🚢 Deployment
+
+For production, consider:
+1. Building the React app: `cd frontend && npm run build`
+2. Serving static files from the Flask backend or a CDN
+3. Using WSGI servers like Gunicorn instead of Flask's dev server
+4. Securing the Google Maps API key with domain restrictions
+
+## 📖 Dataset
+
+Original dataset: [DFT Road Casualty Statistics](https://github.com/abdulwahed786/final-yr-projectqA)
+
+## 👨‍💻 Contributing
+
+To add features or improvements:
+1. Create a new branch for your changes
+2. Test the backend API with `curl` or Postman
+3. Test the frontend in dev mode
+4. Commit with clear messages
+
+## 📄 License
+
+This project is for educational purposes.
+
+---
+
+**Last Updated:** November 2025
