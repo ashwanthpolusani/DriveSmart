@@ -101,8 +101,8 @@ Returns Google Maps API key and heatmap locations.
 
 ## 📊 Model Details
 
-- **Algorithm:** Random Forest Classifier
-- **Accuracy:** 86.86%
+- **Algorithm:** Stacked Ensembled Model
+- **Accuracy:** 96.76%
 - **Input Features:** Driver age, vehicle info, speed, weather, road conditions, light conditions
 - **Output Classes:** 1 (Fatal), 2 (Severe), 3 (Slight)
 
@@ -178,7 +178,7 @@ For production, consider:
 
 ## 📖 Dataset
 
-Original dataset: [DFT Road Casualty Statistics](https://github.com/abdulwahed786/final-yr-projectqA)
+Original dataset: [DFT Road Casualty Statistics](https://www.gov.uk/government/statistics/road-safety-data)
 
 ## 👨‍💻 Contributing
 
