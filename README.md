@@ -26,22 +26,7 @@ scripts/            ← Utility scripts for data/file management
 
 ## 🚀 Quick Start
 
-### Option 1: Automatic Setup Scripts (Recommended)
-
-**For Windows Users:**
-```bash
-# Simply run the batch file
-start.bat
-```
-
-**For Mac/Linux Users:**
-```bash
-# Make the script executable and run it
-chmod +x start.sh
-./start.sh
-```
-
-### Option 2: Manual Setup
+### Manual Setup (Required)
 
 #### Backend Setup
 ```bash

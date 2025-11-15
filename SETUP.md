@@ -129,14 +129,15 @@ The frontend should now be running on `http://localhost:5173`
    - Using a production server like Gunicorn for the Flask backend
    - Setting up proper environment variables for API keys
 
-## Quick Start with Scripts
+## Quick Start
 
-For an even easier setup, use the provided scripts:
+For a quick setup, follow the manual steps outlined in this guide. The setup process involves:
 
-- **Windows**: Run `start.bat` in the project root
-- **Mac/Linux**: Run `chmod +x start.sh && ./start.sh` in the project root
+1. Setting up the backend Flask server
+2. Installing frontend dependencies
+3. Running both servers simultaneously
 
-These scripts will automatically handle the virtual environment creation, dependency installation, and server startup for you.
+Follow the detailed steps in this guide for a smooth setup experience.
 
 ## Project Structure
 
