@@ -1,0 +1,22 @@
+{
+  "report_title": "Severity Distribution Analysis",
+  "generated_date": "2025-11-14T23:50:57.609641",
+  "distribution": [
+    {
+      "severity_level": "Fatal",
+      "count": 1502,
+      "percentage": 1.49
+    },
+    {
+      "severity_level": "Serious",
+      "count": 23567,
+      "percentage": 23.35
+    },
+    {
+      "severity_level": "Slight",
+      "count": 75858,
+      "percentage": 75.16
+    }
+  ],
+  "total_incidents": 100927
+}

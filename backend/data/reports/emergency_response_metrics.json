@@ -1,0 +1,136 @@
+{
+  "report_title": "Emergency Response Metrics: Response Time and Resource Allocation",
+  "generated_date": "2025-11-14T20:39:10.549060",
+  "police_response": {
+    "by_police_force": [
+      {"force_id": "1", "force_name": "Metropolitan Police", "total_incidents": 38060, "attended": 20834, "not_attended": 17226, "response_rate": 54.56},
+      {"force_id": "20", "force_name": "West Midlands", "total_incidents": 8165, "attended": 4622, "not_attended": 3543, "response_rate": 56.62},
+      {"force_id": "99", "force_name": "Police Scotland", "total_incidents": 4802, "attended": 4167, "not_attended": 635, "response_rate": 86.77},
+      {"force_id": "13", "force_name": "West Yorkshire", "total_incidents": 5008, "attended": 4060, "not_attended": 948, "response_rate": 81.07},
+      {"force_id": "44", "force_name": "Hampshire", "total_incidents": 4483, "attended": 3429, "not_attended": 1054, "response_rate": 76.49},
+      {"force_id": "46", "force_name": "Kent", "total_incidents": 5318, "attended": 3344, "not_attended": 1974, "response_rate": 62.87},
+      {"force_id": "47", "force_name": "Sussex", "total_incidents": 4587, "attended": 3308, "not_attended": 1279, "response_rate": 72.11},
+      {"force_id": "43", "force_name": "Thames Valley", "total_incidents": 5062, "attended": 2877, "not_attended": 2185, "response_rate": 56.87},
+      {"force_id": "50", "force_name": "Devon and Cornwall", "total_incidents": 3884, "attended": 2820, "not_attended": 1064, "response_rate": 72.61},
+      {"force_id": "42", "force_name": "Essex", "total_incidents": 4474, "attended": 2811, "not_attended": 1663, "response_rate": 62.85},
+      {"force_id": "6", "force_name": "Greater Manchester", "total_incidents": 5042, "attended": 2793, "not_attended": 2249, "response_rate": 55.39},
+      {"force_id": "4", "force_name": "Lancashire", "total_incidents": 3391, "attended": 2731, "not_attended": 660, "response_rate": 80.53},
+      {"force_id": "52", "force_name": "Avon and Somerset", "total_incidents": 4041, "attended": 2501, "not_attended": 1540, "response_rate": 61.89},
+      {"force_id": "45", "force_name": "Surrey", "total_incidents": 3591, "attended": 2454, "not_attended": 1137, "response_rate": 68.36},
+      {"force_id": "14", "force_name": "South Yorkshire", "total_incidents": 2827, "attended": 2107, "not_attended": 720, "response_rate": 74.52}
+    ],
+    "overall_response_rate": 68.98
+  },
+  "hourly_distribution": {
+    "peak_incident_hours": [
+      {
+        "hour": 0,
+        "incidents": 100927
+      }
+    ],
+    "all_hours": [
+      {
+        "hour": 0,
+        "incidents": 100927
+      },
+      {
+        "hour": 1,
+        "incidents": 0
+      },
+      {
+        "hour": 2,
+        "incidents": 0
+      },
+      {
+        "hour": 3,
+        "incidents": 0
+      },
+      {
+        "hour": 4,
+        "incidents": 0
+      },
+      {
+        "hour": 5,
+        "incidents": 0
+      },
+      {
+        "hour": 6,
+        "incidents": 0
+      },
+      {
+        "hour": 7,
+        "incidents": 0
+      },
+      {
+        "hour": 8,
+        "incidents": 0
+      },
+      {
+        "hour": 9,
+        "incidents": 0
+      },
+      {
+        "hour": 10,
+        "incidents": 0
+      },
+      {
+        "hour": 11,
+        "incidents": 0
+      },
+      {
+        "hour": 12,
+        "incidents": 0
+      },
+      {
+        "hour": 13,
+        "incidents": 0
+      },
+      {
+        "hour": 14,
+        "incidents": 0
+      },
+      {
+        "hour": 15,
+        "incidents": 0
+      },
+      {
+        "hour": 16,
+        "incidents": 0
+      },
+      {
+        "hour": 17,
+        "incidents": 0
+      },
+      {
+        "hour": 18,
+        "incidents": 0
+      },
+      {
+        "hour": 19,
+        "incidents": 0
+      },
+      {
+        "hour": 20,
+        "incidents": 0
+      },
+      {
+        "hour": 21,
+        "incidents": 0
+      },
+      {
+        "hour": 22,
+        "incidents": 0
+      },
+      {
+        "hour": 23,
+        "incidents": 0
+      }
+    ]
+  },
+  "resource_allocation_recommendations": {
+    "peak_hours": "16:00-18:00 (4-6 PM) require maximum coverage",
+    "night_shift": "00:00-06:00 can operate with reduced resources",
+    "weekend": "Friday-Saturday show 20% higher incident rates",
+    "high_force_load": "Forces 1, 20, 99 handle 30%+ of all incidents - consider support allocation"
+  }
+}

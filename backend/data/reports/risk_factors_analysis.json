@@ -1,0 +1,142 @@
+{
+  "report_title": "Top Risk Factors Analysis",
+  "generated_date": "2025-11-14T23:50:57.605947",
+  "factors": {
+    "light_conditions": [
+      {
+        "factor": 1,
+        "count": 71550
+      },
+      {
+        "factor": 4,
+        "count": 21241
+      },
+      {
+        "factor": 6,
+        "count": 5695
+      },
+      {
+        "factor": 7,
+        "count": 1679
+      },
+      {
+        "factor": 5,
+        "count": 756
+      },
+      {
+        "factor": -1,
+        "count": 6
+      }
+    ],
+    "weather_conditions": [
+      {
+        "factor": 1,
+        "count": 79601
+      },
+      {
+        "factor": 2,
+        "count": 12328
+      },
+      {
+        "factor": 9,
+        "count": 3145
+      },
+      {
+        "factor": 8,
+        "count": 3052
+      },
+      {
+        "factor": 5,
+        "count": 1125
+      },
+      {
+        "factor": 4,
+        "count": 935
+      },
+      {
+        "factor": 7,
+        "count": 474
+      },
+      {
+        "factor": 3,
+        "count": 242
+      },
+      {
+        "factor": 6,
+        "count": 25
+      }
+    ],
+    "road_surface_conditions": [
+      {
+        "factor": 1,
+        "count": 71832
+      },
+      {
+        "factor": 2,
+        "count": 25355
+      },
+      {
+        "factor": 9,
+        "count": 1670
+      },
+      {
+        "factor": 4,
+        "count": 1015
+      },
+      {
+        "factor": -1,
+        "count": 704
+      },
+      {
+        "factor": 5,
+        "count": 192
+      },
+      {
+        "factor": 3,
+        "count": 159
+      }
+    ],
+    "special_conditions": [
+      {
+        "factor": -1,
+        "count": 59299
+      },
+      {
+        "factor": 0,
+        "count": 38039
+      },
+      {
+        "factor": 9,
+        "count": 2672
+      },
+      {
+        "factor": 4,
+        "count": 466
+      },
+      {
+        "factor": 1,
+        "count": 134
+      },
+      {
+        "factor": 5,
+        "count": 93
+      },
+      {
+        "factor": 7,
+        "count": 78
+      },
+      {
+        "factor": 3,
+        "count": 78
+      },
+      {
+        "factor": 6,
+        "count": 42
+      },
+      {
+        "factor": 2,
+        "count": 26
+      }
+    ]
+  }
+}

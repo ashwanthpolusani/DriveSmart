@@ -8,7 +8,7 @@ A full-stack web application that predicts road accident severity using machine 
 - **Accident Severity Prediction** — Classifies accidents as Fatal, Severe, or Slight
 - **Interactive Heatmap** — Visualizes accident hotspots across the UK
 - **Real-time Data Collection** — Captures user location, weather, vehicle info, and driver details
-- **ML Model** — Random Forest classifier (86.86% accuracy)
+- **ML Model** — Stacked Ensembled Model (96.76% accuracy)
 
 ## 🏗️ Architecture
 
@@ -26,7 +26,24 @@ scripts/            ← Utility scripts for data/file management
 
 ## 🚀 Quick Start
 
-### Backend Setup
+### Option 1: Automatic Setup Scripts (Recommended)
+
+**For Windows Users:**
+```bash
+# Simply run the batch file
+start.bat
+```
+
+**For Mac/Linux Users:**
+```bash
+# Make the script executable and run it
+chmod +x start.sh
+./start.sh
+```
+
+### Option 2: Manual Setup
+
+#### Backend Setup
 ```bash
 # Install dependencies
 pip install -r backend/requirements.txt
@@ -35,7 +52,7 @@ pip install -r backend/requirements.txt
 python backend/main.py
 ```
 
-### Frontend Setup
+#### Frontend Setup
 ```bash
 # Install dependencies
 cd frontend
@@ -46,6 +63,9 @@ npm run dev
 ```
 
 Open `http://localhost:5173` in your browser.
+
+### Need Help?
+For detailed setup instructions and troubleshooting, see [SETUP.md](SETUP.md).
 
 ## 📡 API Endpoints
 
@@ -95,6 +115,7 @@ Returns Google Maps API key and heatmap locations.
 
 - ✅ **Severity Prediction** — Uses ML to classify accident risk
 - ✅ **Interactive Map** — Google Maps heatmap showing accident hotspots
+- ✅ **Accident Analytics** — Comprehensive reports on safety trends, hotspots, and emergency response
 - ✅ **Form Validation** — Client-side and server-side input validation
 - ✅ **CORS Enabled** — Frontend and backend run on different ports
 - ✅ **Clean Architecture** — Separated frontend/backend with clear data flow
@@ -179,6 +200,10 @@ For production, consider:
 ## 📖 Dataset
 
 Original dataset: [Road Safety Data](https://www.gov.uk/government/statistics/road-safety-data)
+
+## 📚 Additional Documentation
+
+For detailed technical implementation, data analysis, and API specifications, see [IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md).
 
 ## 👨‍💻 Contributing
 

@@ -1,0 +1,126 @@
+{
+  "report_title": "Monthly Trend Analysis",
+  "generated_date": "2025-11-14T20:39:10.552060",
+  "trends": [
+    {
+      "month": "2024-01",
+      "incidents": 8301,
+      "casualties": 10361,
+      "severity_breakdown": {
+        "fatal": 128,
+        "severe": 1845,
+        "slight": 6328
+      }
+    },
+    {
+      "month": "2024-02",
+      "incidents": 7537,
+      "casualties": 9429,
+      "severity_breakdown": {
+        "fatal": 97,
+        "severe": 1683,
+        "slight": 5757
+      }
+    },
+    {
+      "month": "2024-03",
+      "incidents": 7813,
+      "casualties": 9929,
+      "severity_breakdown": {
+        "fatal": 117,
+        "severe": 1747,
+        "slight": 5949
+      }
+    },
+    {
+      "month": "2024-04",
+      "incidents": 7646,
+      "casualties": 9781,
+      "severity_breakdown": {
+        "fatal": 119,
+        "severe": 1787,
+        "slight": 5740
+      }
+    },
+    {
+      "month": "2024-05",
+      "incidents": 8983,
+      "casualties": 11476,
+      "severity_breakdown": {
+        "fatal": 121,
+        "severe": 2157,
+        "slight": 6705
+      }
+    },
+    {
+      "month": "2024-06",
+      "incidents": 9064,
+      "casualties": 11772,
+      "severity_breakdown": {
+        "fatal": 137,
+        "severe": 2216,
+        "slight": 6711
+      }
+    },
+    {
+      "month": "2024-07",
+      "incidents": 8505,
+      "casualties": 10854,
+      "severity_breakdown": {
+        "fatal": 131,
+        "severe": 2040,
+        "slight": 6334
+      }
+    },
+    {
+      "month": "2024-08",
+      "incidents": 8191,
+      "casualties": 10667,
+      "severity_breakdown": {
+        "fatal": 151,
+        "severe": 2144,
+        "slight": 5896
+      }
+    },
+    {
+      "month": "2024-09",
+      "incidents": 8838,
+      "casualties": 11222,
+      "severity_breakdown": {
+        "fatal": 112,
+        "severe": 2097,
+        "slight": 6629
+      }
+    },
+    {
+      "month": "2024-10",
+      "incidents": 9069,
+      "casualties": 11334,
+      "severity_breakdown": {
+        "fatal": 113,
+        "severe": 2057,
+        "slight": 6899
+      }
+    },
+    {
+      "month": "2024-11",
+      "incidents": 8919,
+      "casualties": 11175,
+      "severity_breakdown": {
+        "fatal": 134,
+        "severe": 1938,
+        "slight": 6847
+      }
+    },
+    {
+      "month": "2024-12",
+      "incidents": 8061,
+      "casualties": 10272,
+      "severity_breakdown": {
+        "fatal": 142,
+        "severe": 1856,
+        "slight": 6063
+      }
+    }
+  ]
+}

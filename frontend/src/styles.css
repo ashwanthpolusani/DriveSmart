@@ -1,3 +1,21 @@
 /* Minimal resets for the demo */
 html, body, #root { height: 100%; margin: 0; }
 body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+
+/* Reports dashboard styles */
+.reports-dashboard { padding: 12px; }
+.reports-dashboard h2 { margin: 0 0 12px 0; font-size: 1.25rem; }
+.report-row { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.card { background: white; padding: 12px; border-radius: 8px; border: 1px solid #e5e7eb; box-shadow: 0 1px 2px rgba(0,0,0,0.03); flex: 1 1 320px; min-width: 280px; }
+.card.wide { flex: 1 1 480px; }
+.report-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.report-table th, .report-table td { padding: 8px 10px; border-bottom: 1px solid #f3f4f6; text-align: left; }
+.report-table thead th { font-weight: 600; font-size: 0.9rem; }
+.reports-dashboard .error { color: #b91c1c }
+
+/* Simple bar visuals used in analytics */
+.bar { background: #f3f4f6; height: 10px; border-radius: 6px; overflow: hidden; }
+.bar-inner { height: 100%; background: #1976d2; border-radius: 6px; }
+.bar-inner.orange { background: #f97316 }
+
+

@@ -1,0 +1,714 @@
+{
+  "report_title": "Hotspot Analysis Report: High-Risk Zones and Recommendations",
+  "generated_date": "2025-11-14T20:39:10.505959",
+  "total_unique_hotspots": 85380,
+  "top_hotspots": [
+    {
+      "location": "51.409,-0.122",
+      "lat": 51.409,
+      "lng": -0.122,
+      "incidents": 14,
+      "casualties": 14,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 1,
+        "slight": 13
+      },
+      "location_name": "1360 London Rd, Norbury, London SW16, UK"
+    },
+    {
+      "location": "51.613,-0.065",
+      "lat": 51.613,
+      "lng": -0.065,
+      "incidents": 13,
+      "casualties": 15,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 0,
+        "slight": 13
+      },
+      "location_name": "141 Fore St, London N18 2XF, UK"
+    },
+    {
+      "location": "51.75,-1.244",
+      "lat": 51.75,
+      "lng": -1.244,
+      "incidents": 13,
+      "casualties": 14,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 4,
+        "slight": 9
+      },
+      "location_name": "7 Iffley Rd, Oxford OX4 1EA, UK"
+    },
+    {
+      "location": "51.387,-0.111",
+      "lat": 51.387,
+      "lng": -0.111,
+      "incidents": 12,
+      "casualties": 12,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 0,
+        "slight": 12
+      },
+      "location_name": "Canterbury Road (Stop B), Croydon CR0 3PE, UK"
+    },
+    {
+      "location": "51.432,-0.164",
+      "lat": 51.432,
+      "lng": -0.164,
+      "incidents": 11,
+      "casualties": 12,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 1,
+        "slight": 10
+      },
+      "location_name": "151 Upper Tooting Rd, London SW17 7TJ, UK"
+    },
+    {
+      "location": "51.474,-0.092",
+      "lat": 51.474,
+      "lng": -0.092,
+      "incidents": 11,
+      "casualties": 11,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 1,
+        "slight": 10
+      },
+      "location_name": "2 Camberwell Church St, London SE5 8QU, UK"
+    },
+    {
+      "location": "51.536,0.062",
+      "lat": 51.536,
+      "lng": 0.062,
+      "incidents": 11,
+      "casualties": 11,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 0,
+        "slight": 11
+      },
+      "location_name": "186 Kempton Rd, London E6 2PD, UK"
+    },
+    {
+      "location": "51.547,-0.076",
+      "lat": 51.547,
+      "lng": -0.076,
+      "incidents": 11,
+      "casualties": 14,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 2,
+        "slight": 9
+      },
+      "location_name": "Ladbrokes Ltd, 23 Kingsland High St, London E8 2JS, UK"
+    },
+    {
+      "location": "52.473,-1.875",
+      "lat": 52.473,
+      "lng": -1.875,
+      "incidents": 11,
+      "casualties": 13,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 1,
+        "slight": 10
+      },
+      "location_name": "1 New Bond St, Birmingham B9 4EJ, UK"
+    },
+    {
+      "location": "51.446,0.008",
+      "lat": 51.446,
+      "lng": 0.008,
+      "incidents": 10,
+      "casualties": 11,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 0,
+        "slight": 10
+      },
+      "location_name": "63 St Mildreds Rd, London SE12 0RF, UK"
+    },
+    {
+      "location": "53.481,-2.243",
+      "lat": 53.481,
+      "lng": -2.243,
+      "incidents": 10,
+      "casualties": 10,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 7,
+        "slight": 3
+      },
+      "location_name": "29 King St, Manchester M2 6AF, UK"
+    },
+    {
+      "location": "51.428,-0.168",
+      "lat": 51.428,
+      "lng": -0.168,
+      "incidents": 9,
+      "casualties": 9,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 3,
+        "slight": 6
+      },
+      "location_name": "Tooting Broadway Station, London SW17 9PA, UK"
+    },
+    {
+      "location": "51.457,-0.41",
+      "lat": 51.457,
+      "lng": -0.41,
+      "incidents": 9,
+      "casualties": 12,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 4,
+        "slight": 5
+      },
+      "location_name": "135 Harlington Rd W, Feltham TW14 0JG, UK"
+    },
+    {
+      "location": "51.478,-0.19",
+      "lat": 51.478,
+      "lng": -0.19,
+      "incidents": 9,
+      "casualties": 9,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 1,
+        "slight": 8
+      },
+      "location_name": "632 King's Rd, London SW6 2DU, UK"
+    },
+    {
+      "location": "51.478,-0.404",
+      "lat": 51.478,
+      "lng": -0.404,
+      "incidents": 9,
+      "casualties": 10,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 2,
+        "slight": 7
+      },
+      "location_name": "601 A4, Hounslow TW5 9LN, UK"
+    },
+    {
+      "location": "51.501,-0.126",
+      "lat": 51.501,
+      "lng": -0.126,
+      "incidents": 9,
+      "casualties": 9,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 3,
+        "slight": 6
+      },
+      "location_name": "11 Bridge St, London SW1A 2JR, UK"
+    },
+    {
+      "location": "51.513,-0.129",
+      "lat": 51.513,
+      "lng": -0.129,
+      "incidents": 9,
+      "casualties": 9,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 0,
+        "slight": 9
+      },
+      "location_name": "Cambridge Circus, London WC2H 8PA, UK"
+    },
+    {
+      "location": "51.559,-0.254",
+      "lat": 51.559,
+      "lng": -0.254,
+      "incidents": 9,
+      "casualties": 10,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 0,
+        "slight": 9
+      },
+      "location_name": "407 N Circular Rd., Neasden, London NW10 0HS, UK"
+    },
+    {
+      "location": "51.564,-0.105",
+      "lat": 51.564,
+      "lng": -0.105,
+      "incidents": 9,
+      "casualties": 9,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 2,
+        "slight": 7
+      },
+      "location_name": "19 Rock St, Finsbury Park, London N4 2DN, UK"
+    },
+    {
+      "location": "51.636,-0.013",
+      "lat": 51.636,
+      "lng": -0.013,
+      "incidents": 9,
+      "casualties": 14,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 1,
+        "severe": 0,
+        "slight": 8
+      },
+      "location_name": "4 Lea Valley Rd, London E4 7PX, UK"
+    },
+    {
+      "location": "51.388,-0.111",
+      "lat": 51.388,
+      "lng": -0.111,
+      "incidents": 8,
+      "casualties": 9,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 1,
+        "slight": 7
+      },
+      "location_name": "The Guardian News, 504 London Rd, Thornton Heath CR7 7HQ, UK"
+    },
+    {
+      "location": "51.393,-0.117",
+      "lat": 51.393,
+      "lng": -0.117,
+      "incidents": 8,
+      "casualties": 8,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 0,
+        "slight": 8
+      },
+      "location_name": "18 Silverleigh Rd, Thornton Heath CR7 6DU, UK"
+    },
+    {
+      "location": "51.397,-0.106",
+      "lat": 51.397,
+      "lng": -0.106,
+      "incidents": 8,
+      "casualties": 8,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 1,
+        "slight": 7
+      },
+      "location_name": "20 Chipstead Ave, Thornton Heath CR7 7DG, UK"
+    },
+    {
+      "location": "51.43,-0.166",
+      "lat": 51.43,
+      "lng": -0.166,
+      "incidents": 8,
+      "casualties": 8,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 0,
+        "slight": 8
+      },
+      "location_name": "2 Broadwater Rd, London SW17 0DR, UK"
+    },
+    {
+      "location": "51.449,-0.173",
+      "lat": 51.449,
+      "lng": -0.173,
+      "incidents": 8,
+      "casualties": 8,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 0,
+        "slight": 8
+      },
+      "location_name": "De Beauvoir Court, 311 Trinity Rd, London SW18 3SL, UK"
+    },
+    {
+      "location": "51.461,-0.116",
+      "lat": 51.461,
+      "lng": -0.116,
+      "incidents": 8,
+      "casualties": 9,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 1,
+        "slight": 7
+      },
+      "location_name": "83 Acre Ln, Brixton Hill, London SW2 1RJ, UK"
+    },
+    {
+      "location": "51.465,-0.13",
+      "lat": 51.465,
+      "lng": -0.13,
+      "incidents": 8,
+      "casualties": 11,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 4,
+        "slight": 4
+      },
+      "location_name": "11 Clapham High St, London SW4 7TS, UK"
+    },
+    {
+      "location": "51.47,-0.172",
+      "lat": 51.47,
+      "lng": -0.172,
+      "incidents": 8,
+      "casualties": 8,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 3,
+        "slight": 5
+      },
+      "location_name": "85 Coppock Cl, London SW11 2LE, UK"
+    },
+    {
+      "location": "51.486,-0.122",
+      "lat": 51.486,
+      "lng": -0.122,
+      "incidents": 8,
+      "casualties": 8,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 3,
+        "slight": 5
+      },
+      "location_name": "Vauxhall, S Lambeth Rd, London SW8 1SS, UK"
+    },
+    {
+      "location": "51.513,-0.104",
+      "lat": 51.513,
+      "lng": -0.104,
+      "incidents": 8,
+      "casualties": 8,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 4,
+        "slight": 4
+      },
+      "location_name": "76 New Bridge St, London EC4Y 8DU, UK"
+    },
+    {
+      "location": "51.52,-0.056",
+      "lat": 51.52,
+      "lng": -0.056,
+      "incidents": 8,
+      "casualties": 8,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 1,
+        "slight": 7
+      },
+      "location_name": "Ground floor, 5 Mile End Rd, Bethnal Green, London E1 4TP, UK"
+    },
+    {
+      "location": "51.525,-0.035",
+      "lat": 51.525,
+      "lng": -0.035,
+      "incidents": 8,
+      "casualties": 8,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 3,
+        "slight": 5
+      },
+      "location_name": "391 Mile End Rd, Bow, London E3 4QS, UK"
+    },
+    {
+      "location": "51.55,-0.06",
+      "lat": 51.55,
+      "lng": -0.06,
+      "incidents": 8,
+      "casualties": 10,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 1,
+        "slight": 7
+      },
+      "location_name": "21 Pembury Rd, Lower Clapton, London E5 8LT, UK"
+    },
+    {
+      "location": "51.564,-0.073",
+      "lat": 51.564,
+      "lng": -0.073,
+      "incidents": 8,
+      "casualties": 8,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 2,
+        "slight": 6
+      },
+      "location_name": "2 Stamford Hill, London N16 6XZ, UK"
+    },
+    {
+      "location": "51.575,-0.072",
+      "lat": 51.575,
+      "lng": -0.072,
+      "incidents": 8,
+      "casualties": 9,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 1,
+        "slight": 7
+      },
+      "location_name": "The Tunpike, 270 Stamford Hill, London N16 6TY, UK"
+    },
+    {
+      "location": "51.595,-0.109",
+      "lat": 51.595,
+      "lng": -0.109,
+      "incidents": 8,
+      "casualties": 8,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 4,
+        "slight": 4
+      },
+      "location_name": "128 High Rd, London N22 8HH, UK"
+    },
+    {
+      "location": "51.612,-0.11",
+      "lat": 51.612,
+      "lng": -0.11,
+      "incidents": 8,
+      "casualties": 15,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 3,
+        "slight": 5
+      },
+      "location_name": "157 Green Lanes, London N13 4SP, UK"
+    },
+    {
+      "location": "51.66,-0.047",
+      "lat": 51.66,
+      "lng": -0.047,
+      "incidents": 8,
+      "casualties": 8,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 1,
+        "slight": 7
+      },
+      "location_name": "2 Moorfield Rd, Enfield EN3 5XP, UK"
+    },
+    {
+      "location": "52.108,-0.476",
+      "lat": 52.108,
+      "lng": -0.476,
+      "incidents": 8,
+      "casualties": 12,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 1,
+        "slight": 7
+      },
+      "location_name": "4G5F+6J Bedford, UK"
+    },
+    {
+      "location": "50.837,-0.125",
+      "lat": 50.837,
+      "lng": -0.125,
+      "incidents": 7,
+      "casualties": 9,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 3,
+        "slight": 4
+      },
+      "location_name": "95 Lewes Rd, Brighton and Hove, Brighton BN2 3QA, UK"
+    },
+    {
+      "location": "50.908,-1.398",
+      "lat": 50.908,
+      "lng": -1.398,
+      "incidents": 7,
+      "casualties": 8,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 0,
+        "slight": 7
+      },
+      "location_name": "A33, Southampton SO14, UK"
+    },
+    {
+      "location": "51.026,-2.69",
+      "lat": 51.026,
+      "lng": -2.69,
+      "incidents": 7,
+      "casualties": 11,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 2,
+        "slight": 5
+      },
+      "location_name": "Red Post Cross, Somerton TA11 7ES, UK"
+    },
+    {
+      "location": "51.397,-0.116",
+      "lat": 51.397,
+      "lng": -0.116,
+      "incidents": 7,
+      "casualties": 8,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 0,
+        "slight": 7
+      },
+      "location_name": "845 London Rd, Thornton Heath CR7 6AW, UK"
+    },
+    {
+      "location": "51.405,-0.342",
+      "lat": 51.405,
+      "lng": -0.342,
+      "incidents": 7,
+      "casualties": 7,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 1,
+        "slight": 6
+      },
+      "location_name": "Palace Gate House, Palace Gate, Hampton Ct Rd, Molesey, East Molesey KT8 9BN, UK"
+    },
+    {
+      "location": "51.409,-0.06",
+      "lat": 51.409,
+      "lng": -0.06,
+      "incidents": 7,
+      "casualties": 8,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 3,
+        "slight": 4
+      },
+      "location_name": "232 Anerley Rd, London SE20 8TJ, UK"
+    },
+    {
+      "location": "51.412,-0.088",
+      "lat": 51.412,
+      "lng": -0.088,
+      "incidents": 7,
+      "casualties": 7,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 0,
+        "slight": 7
+      },
+      "location_name": "Upper Beulah Hill (Stop NE), London SE19 3LU, UK"
+    },
+    {
+      "location": "51.445,-0.152",
+      "lat": 51.445,
+      "lng": -0.152,
+      "incidents": 7,
+      "casualties": 7,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 2,
+        "slight": 5
+      },
+      "location_name": "156A Balham High Rd, London SW12 9BN, UK"
+    },
+    {
+      "location": "51.45,0.029",
+      "lat": 51.45,
+      "lng": 0.029,
+      "incidents": 7,
+      "casualties": 13,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 2,
+        "slight": 5
+      },
+      "location_name": "7 Ryelands Cres, London SE12 9AD, UK"
+    },
+    {
+      "location": "51.467,-0.105",
+      "lat": 51.467,
+      "lng": -0.105,
+      "incidents": 7,
+      "casualties": 7,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 2,
+        "slight": 5
+      },
+      "location_name": "Hero of Switzerland, 148 Loughborough Rd, London SW9 7LL, UK"
+    },
+    {
+      "location": "51.472,-0.122",
+      "lat": 51.472,
+      "lng": -0.122,
+      "incidents": 7,
+      "casualties": 7,
+      "risk_level": "MEDIUM",
+      "severity_breakdown": {
+        "fatal": 0,
+        "severe": 2,
+        "slight": 5
+      },
+      "location_name": "13 Stockwell Rd, London SW9 9AU, UK"
+    }
+  ],
+  "recommendations": [
+    "Deploy additional police units at CRITICAL risk zones during peak hours",
+    "Install traffic calming measures in HIGH risk areas",
+    "Implement speed monitoring and enforcement at hotspots",
+    "Improve street lighting and visibility at frequent accident locations",
+    "Analyze underlying causes (intersections, road design, etc.) for targeted interventions"
+  ]
+}
