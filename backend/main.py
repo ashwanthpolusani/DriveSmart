@@ -223,26 +223,55 @@ def api_mapdata():
     state = (data or {}).get('state', {})
     locations = []
 
-    for k, v in state.items():
-        if not isinstance(v, dict):
-            continue
-        model_name = v.get('model_name')
-        s = v.get('state', {})
-        if model_name == 'PlainmapModel':
-            cfg = s.get('configuration', {})
-            if cfg.get('api_key'):
-                api_key = cfg.get('api_key')
-        if model_name == 'SimpleHeatmapLayerModel':
-            locs = s.get('locations', [])
-            for pair in locs:
-                if isinstance(pair, list) and len(pair) >= 2:
-                    locations.append({'lat': float(pair[0]), 'lng': float(pair[1])})
+    try:
+        for k, v in state.items():
+            if not isinstance(v, dict):
+                continue
+            model_name = v.get('model_name')
+            s = v.get('state', {})
+            if model_name == 'PlainmapModel':
+                cfg = s.get('configuration', {})
+                if cfg.get('api_key'):
+                    api_key = cfg.get('api_key')
+            if model_name == 'SimpleHeatmapLayerModel':
+                locs = s.get('locations', [])
+                for pair in locs:
+                    if isinstance(pair, list) and len(pair) >= 2:
+                        locations.append({'lat': float(pair[0]), 'lng': float(pair[1])})
+    except Exception as e:
+        # Defensive: if parsing state throws (huge file or unexpected structure), log and return a helpful error
+        logger.exception('Error extracting state from mapdata.json for /api/mapdata: %s', e)
+        # If we have an API key available from env, give that back; otherwise indicate the failure
+        if os.environ.get('GOOGLE_MAPS_API_KEY'):
+            return jsonify({'api_key': os.environ.get('GOOGLE_MAPS_API_KEY'), 'locations': []})
+        return jsonify({'error': 'Failed to parse mapdata.json on server'}), 500
 
     # allow env var to override any api_key found in the file
     if os.environ.get('GOOGLE_MAPS_API_KEY'):
         api_key = os.environ.get('GOOGLE_MAPS_API_KEY')
 
-    return jsonify({'api_key': api_key, 'locations': locations})
+    # Protect large payloads: return at most MAPDATA_MAX_LOCATIONS locations
+    try:
+        max_locations = int(os.environ.get('MAPDATA_MAX_LOCATIONS', '2000'))
+    except Exception:
+        max_locations = 2000
+
+    total_locations = len(locations)
+    if total_locations > max_locations:
+        logger.info('Truncating %d locations to %d for /api/mapdata response', total_locations, max_locations)
+        # Uniformly sample a subset to keep heatmap representative
+        try:
+            import random
+            sampled = random.sample(locations, max_locations)
+            locations = sampled
+        except Exception:
+            # If sampling fails for any reason, just slice the list
+            locations = locations[:max_locations]
+
+    # Return truncated flag so frontend can know if the data is partial
+    truncated = total_locations > len(locations)
+
+    return jsonify({'api_key': api_key, 'locations': locations, 'total_locations': total_locations, 'truncated': truncated})
 
 
 @app.route('/api/mapdata-debug', methods=['GET'])
