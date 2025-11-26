@@ -37,7 +37,6 @@ instance/
 .jupyter
 
 # Data & Models
-*.csv
 *.pkl
 *.h5
 *.pt

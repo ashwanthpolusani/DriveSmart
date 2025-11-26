@@ -13,6 +13,9 @@ model = None
 try:
     if os.path.exists(MODEL_PATH):
         import joblib
+        import warnings
+        # Suppress sklearn version warnings
+        warnings.filterwarnings("ignore", category=UserWarning, module='sklearn')
         model = joblib.load(MODEL_PATH)
         print('Loaded model from', MODEL_PATH)
     else:
@@ -31,20 +34,38 @@ def map_frontend_to_model_features(payload: dict):
     # Basic mappings / defaults
     vehicle_map = {'car': 3, 'bike': 2, 'truck': 4, 'bus': 5}
     weather_map = {'clear': 1, 'rain': 2, 'fog': 3, 'snow': 4}
+    road_map = {'dry': 1, 'wet': 2, 'ice': 3, 'pothole': 4}
 
     # Read values with sensible fallbacks
     Did_Police_Officer_Attend = float(payload.get('Did_Police_Officer_Attend', 0))
-    age_of_driver = float(payload.get('age_of_driver', 30.0))
+
+    # The frontend sends log-transformed values for age_of_driver and age_of_vehicle
+    # We need to use them directly as they've already been transformed
+    age_of_driver = float(payload.get('age_of_driver', np.log(30.0)))
+
     try:
         vehicle_type = float(payload.get('vehicle_type'))
     except Exception:
         vehicle_type = vehicle_map.get(payload.get('vehicle', '').lower(), 3)
 
-    age_of_vehicle = float(payload.get('age_of_vehicle', 5.0))
+    age_of_vehicle = float(payload.get('age_of_vehicle', np.log(5.0)))
     engine_cc = float(payload.get('engine_cc', 1500.0))
     day = int(float(payload.get('day', 1)))
-    weather_n = int(float(payload.get('weather', weather_map.get(payload.get('weather', '').lower(), 1))))
-    roadsc = int(float(payload.get('roadsc', 1)))
+
+    # Handle weather parameter correctly
+    weather_val = payload.get('weather', '').lower()
+    if weather_val in weather_map:
+        weather_n = weather_map[weather_val]
+    else:
+        weather_n = int(float(payload.get('weather', 1)))
+
+    # Handle road condition parameter correctly
+    road_val = payload.get('roadsc', '').lower()
+    if road_val in road_map:
+        roadsc = road_map[road_val]
+    else:
+        roadsc = int(float(payload.get('roadsc', 1)))
+
     light = int(float(payload.get('light', 1)))
     gender = int(float(payload.get('gender', 1)))
     speedl = float(payload.get('speedl', 40.0))
@@ -52,6 +73,52 @@ def map_frontend_to_model_features(payload: dict):
     arr = np.array([Did_Police_Officer_Attend, age_of_driver, vehicle_type, age_of_vehicle,
                     engine_cc, day, weather_n, roadsc, light, gender, speedl])
     return arr.astype(float).reshape(1, -1)
+
+
+@app.route('/api/model-test', methods=['GET'])
+def api_model_test():
+    """Test endpoint to verify model is working correctly with sample data."""
+    if model is None:
+        return jsonify({'error': 'Model not available'}), 503
+
+    try:
+        # Create a sample feature array with proper values
+        test_features = np.array([[1, np.log(30), 3, np.log(5), 1500, 1, 1, 1, 1, 1, 40]])
+        print(f"Test features: {test_features}")
+
+        pred = model.predict(test_features)
+        print(f"Model test prediction: {pred}")
+
+        confidence = None
+        try:
+            if hasattr(model, 'predict_proba'):
+                probs = model.predict_proba(test_features)
+                confidence = float(np.max(probs) * 100)
+                print(f"Test prediction probabilities: {probs}, max: {confidence}")
+        except Exception as e:
+            print(f"Could not get test prediction probabilities: {e}")
+            confidence = None
+
+        # Convert numeric prediction to severity level
+        pred_val = int(pred[0])
+        severity = "Slight"  # default
+        if pred_val == 1:
+            severity = "Fatal"
+        elif pred_val == 2:
+            severity = "Serious"
+        elif pred_val == 3:
+            severity = "Slight"
+
+        return jsonify({
+            'test_features': test_features.tolist(),
+            'prediction': severity,
+            'confidence': confidence
+        })
+    except Exception as e:
+        print(f"Model test error: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': str(e)}), 500
 
 
 @app.route('/api/predict', methods=['POST'])
@@ -71,15 +138,37 @@ def api_predict():
 
     try:
         features = map_frontend_to_model_features(payload)
+        print(f"Features shape: {features.shape}")
+        print(f"Features: {features}")
+
         pred = model.predict(features)
+        print(f"Model prediction: {pred}")
+
         confidence = None
         try:
-            probs = model.predict_proba(features)
-            confidence = float(np.max(probs) * 100)
-        except Exception:
+            if hasattr(model, 'predict_proba'):
+                probs = model.predict_proba(features)
+                confidence = float(np.max(probs) * 100)
+                print(f"Prediction probabilities: {probs}, max: {confidence}")
+        except Exception as e:
+            print(f"Could not get prediction probabilities: {e}")
             confidence = None
-        return jsonify({'prediction': str(pred[0]), 'confidence': confidence})
+
+        # Convert numeric prediction to severity level
+        pred_val = int(pred[0])
+        severity = "Slight"  # default
+        if pred_val == 1:
+            severity = "Fatal"
+        elif pred_val == 2:
+            severity = "Serious"
+        elif pred_val == 3:
+            severity = "Slight"
+
+        return jsonify({'prediction': severity, 'confidence': confidence})
     except Exception as e:
+        print(f"Prediction error: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return jsonify({'error': str(e)}), 500
 
 

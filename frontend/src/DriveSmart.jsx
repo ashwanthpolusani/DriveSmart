@@ -154,7 +154,8 @@ const DriveSmart = () => {
       light: '1',
       roadsc: 'dry',
       gender: '1',
-      speedl: '30'
+      speedl: '30',
+      time: 'morning' // Add missing time field
     });
 
     const handleGetLocation = async () => {
@@ -205,6 +206,14 @@ const DriveSmart = () => {
       // The original form applies Math.log to age_of_driver and age_of_vehicle before sending.
       // Build payload matching backend expectations. We send textual values
       // (e.g. 'car', 'clear') and the backend maps them to numeric features.
+      // Map time of day to light conditions
+      const timeToLightMap = {
+        'morning': '1',    // Daylight
+        'afternoon': '1',  // Daylight
+        'evening': '4',    // Darkness - lights lit
+        'night': '6'       // Darkness - no lighting
+      };
+
       const payload = {
         Did_Police_Officer_Attend: formData.Did_Police_Officer_Attend,
         latitude: parseFloat(formData.latitude) || 0,
@@ -216,32 +225,43 @@ const DriveSmart = () => {
         engine_cc: parseFloat(formData.engine_cc || '1500'),
         day: formData.day,
         weather: formData.weather,
-        light: formData.light,
+        light: timeToLightMap[formData.time] || formData.light,
         roadsc: formData.roadsc,
         gender: formData.gender,
         speedl: parseFloat(formData.speedl || '40')
       };
 
+      console.log('Sending prediction request with payload:', payload);
+
       try {
         const resp = await axios.post('http://localhost:4000/api/predict', payload, { headers: { 'Content-Type': 'application/json' } });
+        console.log('Received prediction response:', resp.data);
+
         if (resp.data && resp.data.prediction) {
           const label = resp.data.prediction;
-          // original model returns numeric label (e.g., 1/2/3) — map to textual severity if needed
+          // The backend now sends textual severity directly
           let severity = String(label);
           let color = 'yellow';
-          if (severity === '1' || /fatal/i.test(severity)) { severity = 'Fatal'; color = 'red'; }
-          else if (severity === '2' || /serious/i.test(severity)) { severity = 'Serious'; color = 'orange'; }
-          else { severity = 'Slight'; color = 'yellow'; }
+          if (/fatal/i.test(severity)) { color = 'red'; }
+          else if (/serious/i.test(severity)) { color = 'orange'; }
+          else { color = 'yellow'; }
 
           const confidence = resp.data.confidence ? Math.round(resp.data.confidence) : null;
           setPredictionResult({ severity, confidence, color });
           return;
         }
       } catch (e) {
-        console.warn('Prediction request failed', e);
+        console.error('Prediction request failed', e);
+        // Don't use fallback random prediction, show error instead
+        setPredictionResult({
+          severity: 'Error',
+          confidence: null,
+          color: 'red'
+        });
+        return;
       }
 
-      // fallback local random
+      // fallback local random (shouldn't reach here if backend is working)
       const severities = ['Fatal', 'Serious', 'Slight'];
       const confidences = [92, 87, 78];
       const randomIndex = Math.floor(Math.random() * 3);
@@ -315,8 +335,8 @@ const DriveSmart = () => {
               <label className="block text-sm font-medium mb-2">Road Condition</label>
               <select
                 className="w-full p-2 border border-gray-300 rounded"
-                value={formData.road}
-                onChange={(e) => setFormData({...formData, road: e.target.value})}
+                value={formData.roadsc}
+                onChange={(e) => setFormData({...formData, roadsc: e.target.value})}
               >
                 <option value="">Select road condition</option>
                 <option value="dry">Dry</option>
