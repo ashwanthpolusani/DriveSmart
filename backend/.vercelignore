@@ -1,0 +1,3 @@
+# Ignore the large raw CSV dataset, as it's not needed by the running API.
+# The API uses the pre-processed .json and .geojson files.
+data/accidents.csv
