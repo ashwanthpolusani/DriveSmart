@@ -1,3 +1,13 @@
-# Ignore the large raw CSV dataset, as it's not needed by the running API.
-# The API uses the pre-processed .json and .geojson files.
+# Ignore large data files to reduce deployment size.
+# Using multiple patterns to ensure a match.
+
+# Relative path from backend root
 data/accidents.csv
+data/litemodel.sav
+
+# Using wildcards to find the files anywhere
+**/data/accidents.csv
+**/data/litemodel.sav
+**/accidents.csv
+**/litemodel.sav
+
