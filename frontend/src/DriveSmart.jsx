@@ -3,8 +3,10 @@ import { AlertCircle, Cloud, MapPin, Car, TrendingUp, Map, FileText } from 'luci
 import MapComponent from './MapComponent';
 import ReportsDashboard from './ReportsDashboard';
 import axios from 'axios';
+import { API_BASE_URL } from './config';
 
-const BASE_API = 'http://localhost:4000';
+// Use a stable alias so existing code can continue using `BASE_API`.
+const BASE_API = API_BASE_URL;
 
 // Utility function to load Google Maps script globally
 const loadGoogleMapsScript = (apiKey, libraries) => {
@@ -234,7 +236,7 @@ const DriveSmart = () => {
       console.log('Sending prediction request with payload:', payload);
 
       try {
-        const resp = await axios.post('http://localhost:4000/api/predict', payload, { headers: { 'Content-Type': 'application/json' } });
+        const resp = await axios.post(`${BASE_API}/api/predict`, payload, { headers: { 'Content-Type': 'application/json' } });
         console.log('Received prediction response:', resp.data);
 
         if (resp.data && resp.data.prediction) {

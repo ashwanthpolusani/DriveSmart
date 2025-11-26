@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from './config';
 
 const MapComponent = ({ className = '', gmapsApiKey, gmapsScriptLoaded }) => {
   const ref = useRef(null);
@@ -17,7 +18,7 @@ const MapComponent = ({ className = '', gmapsApiKey, gmapsScriptLoaded }) => {
     }
 
     try {
-      const resp = await axios.get('http://localhost:4000/api/mapdata');
+      const resp = await axios.get(`${API_BASE_URL}/api/mapdata`);
       const { locations } = resp.data;
 
       if (!locations || !locations.length) {

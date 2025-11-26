@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from './config'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -22,7 +23,7 @@ ChartJS.register(
   Legend
 )
 
-const BASE = 'http://localhost:4000'
+const BASE = API_BASE_URL
 const endpointMap = {
   monthlySafety: `${BASE}/api/reports/monthly-safety`,
   hotspotAnalysis: `${BASE}/api/reports/hotspot-analysis`,
