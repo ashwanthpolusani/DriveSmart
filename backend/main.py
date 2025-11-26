@@ -1,10 +1,16 @@
 from flask import Flask, request, jsonify
+import logging
+import traceback
 from flask_cors import CORS
 import os
 import numpy as np
 
 app = Flask(__name__)
 CORS(app)
+
+# Set up basic logging for diagnostic purposes (render logs will capture these)
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger('drivesmart')
 
 # Load the ML model from backend/data/
 # The model is essential for /api/predict predictions
@@ -186,7 +192,9 @@ def _load_mapdata_json(path=None):
         path = os.path.abspath(path)
         with open(path, 'r', encoding='utf-8') as f:
             return json.load(f)
-    except Exception:
+    except Exception as e:
+        # Log the full traceback so we can review in Render/host logs
+        logger.exception(f"_load_mapdata_json failed reading {path}: {e}")
         return None
 
 
@@ -196,12 +204,23 @@ def api_mapdata():
 
     Response example: { "api_key": "...", "locations": [ {"lat": .., "lng": ..}, ... ] }
     """
-    data = _load_mapdata_json()
-    if not data:
-        return jsonify({'error': 'map data not found at backend/data/mapdata.json'}), 404
+    # Prefer an explicit environment variable first (recommended for production)
+    # This allows the API key to be kept out of the repo and configured on Render.
+    api_key = os.environ.get('GOOGLE_MAPS_API_KEY')
 
-    state = data.get('state', {})
-    api_key = None
+    # Attempt to load the bundle file (mapdata.json) if present
+    data = None
+    try:
+        data = _load_mapdata_json()
+    except Exception as e:
+        # _load_mapdata_json already logs, keep going - we'll still try to return the env key
+        logger.exception('Unexpected error while loading mapdata.json')
+
+    if not data and not api_key:
+        logger.warning('No mapdata.json and no GOOGLE_MAPS_API_KEY env var — /api/mapdata will return 404')
+        return jsonify({'error': 'map data not found and GOOGLE_MAPS_API_KEY not set'}), 404
+
+    state = (data or {}).get('state', {})
     locations = []
 
     for k, v in state.items():
@@ -219,7 +238,40 @@ def api_mapdata():
                 if isinstance(pair, list) and len(pair) >= 2:
                     locations.append({'lat': float(pair[0]), 'lng': float(pair[1])})
 
+    # allow env var to override any api_key found in the file
+    if os.environ.get('GOOGLE_MAPS_API_KEY'):
+        api_key = os.environ.get('GOOGLE_MAPS_API_KEY')
+
     return jsonify({'api_key': api_key, 'locations': locations})
+
+
+@app.route('/api/mapdata-debug', methods=['GET'])
+def api_mapdata_debug():
+    """Diagnostic endpoint which reports whether critical files exist and their sizes.
+
+    This is helpful for debugging deployment issues (like missing files) in the host logs/console.
+    """
+    base = os.path.join(os.path.dirname(__file__), 'data')
+    files = ['mapdata.json', 'litemodel.sav', 'accidents_hotspots.geojson']
+    report = {}
+    for fn in files:
+        fp = os.path.join(base, fn)
+        try:
+            exists = os.path.exists(fp)
+            size = os.path.getsize(fp) if exists else None
+            report[fn] = {'exists': exists, 'size': size}
+        except Exception as e:
+            report[fn] = {'exists': False, 'error': str(e)}
+
+    # Also show the env var (do NOT print secret values in public logs if this repo is public — this is just diagnostic)
+    report['GOOGLE_MAPS_API_KEY_set'] = bool(os.environ.get('GOOGLE_MAPS_API_KEY'))
+    return jsonify(report)
+
+
+@app.route('/health', methods=['GET'])
+def health():
+    """Simple health check — returns 200 when app is accepting requests."""
+    return jsonify({'status': 'ok'}), 200
 
 @app.route('/api/analytics', methods=['GET'])
 def api_analytics():
