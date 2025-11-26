@@ -182,6 +182,27 @@ For production, consider:
 3. Using WSGI servers like Gunicorn instead of Flask's dev server
 4. Securing the Google Maps API key with domain restrictions
 
+### Frontend -> Backend configuration (Vercel / production)
+
+If you're deploying the frontend separately (e.g., Vercel) and your backend is hosted somewhere else (like Render), set an environment variable so the frontend knows where to call the API.
+
+- Vite reads env vars that start with VITE_. Use `VITE_API_BASE_URL` to configure the backend URL.
+- Example values:
+  - Production (Vercel): `https://drivesmartbackend.onrender.com`
+  - Local development: `http://localhost:4000`
+
+How to set it:
+
+- Local dev: create a `.env` or `.env.development` inside the `frontend/` folder and add:
+
+```
+VITE_API_BASE_URL=http://localhost:4000
+```
+
+- Vercel: in your project settings → Environment Variables, add `VITE_API_BASE_URL` and set the production value to your backend URL.
+
+The frontend is already wired to prefer `VITE_API_BASE_URL` (with sensible fallbacks), so once you set the variable on Vercel the deployed frontend will call your Render backend automatically.
+
 ## 📖 Dataset
 
 Original dataset: [Road Safety Data](https://www.gov.uk/government/statistics/road-safety-data)
